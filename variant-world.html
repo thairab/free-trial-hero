@@ -1606,17 +1606,17 @@
                 t = c.t;
               var ell = c.g - LEAD + u;
               var scale = cfg.mStar * Math.pow(R, ell) * intro; // POSITION expansion
-              var sz = Math.pow(scale, c.P); // on-screen SIZE growth (per tile)
+              // Tiles grow from a sub-px point at centre up to full size by the resting frame
+              // (scale 1), so they emerge by SCALING — opacity stays 1, no ghosted fade-in, and
+              // the centre stays clean because a sub-px point is invisible (not a cluster).
+              var emerge = (scale - 0.1) / 0.9;
+              if (emerge < 0) emerge = 0;
+              else if (emerge > 1) emerge = 1;
+              var sz = Math.pow(scale, c.P) * emerge; // on-screen SIZE growth (per tile)
               var onW = t.w * L.s * sz; // target on-screen width (design px)
               var s = onW / t.nw; // native -> screen (mostly downscale)
-              c.el.style.borderRadius = (8 / s).toFixed(1) + "px"; // ~8px on screen (cancels the scale)
+              c.el.style.borderRadius = (s > 0.001 ? 8 / s : 0).toFixed(1) + "px"; // ~8px on screen
               var depth = (scale < 2.4 ? scale : 2.4) * cfg.pStrength;
-              // Hide the tight central spawn cluster: tiles stay invisible while small and
-              // near centre, fading in only as they grow out toward their framed positions.
-              var fade = (scale - 0.6) / 0.4;
-              if (fade < 0) fade = 0;
-              else if (fade > 1) fade = 1;
-              c.el.style.opacity = fade;
               var cx = L.cx + (t.dx * scale + pxv * depth) * L.s;
               var cy = L.cy + (t.dy * scale + pyv * depth) * L.s;
               var X = cx - onW / 2,
@@ -1904,17 +1904,17 @@
                 t = c.t;
               var ell = c.g - LEAD + u;
               var scale = cfg.mStar * Math.pow(R, ell) * intro; // POSITION expansion
-              var sz = Math.pow(scale, c.P); // on-screen SIZE growth (per tile)
+              // Tiles grow from a sub-px point at centre up to full size by the resting frame
+              // (scale 1), so they emerge by SCALING — opacity stays 1, no ghosted fade-in, and
+              // the centre stays clean because a sub-px point is invisible (not a cluster).
+              var emerge = (scale - 0.1) / 0.9;
+              if (emerge < 0) emerge = 0;
+              else if (emerge > 1) emerge = 1;
+              var sz = Math.pow(scale, c.P) * emerge; // on-screen SIZE growth (per tile)
               var onW = t.w * L.s * sz; // target on-screen width (design px)
               var s = onW / t.nw; // native -> screen (mostly downscale)
-              c.el.style.borderRadius = (8 / s).toFixed(1) + "px"; // ~8px on screen (cancels the scale)
+              c.el.style.borderRadius = (s > 0.001 ? 8 / s : 0).toFixed(1) + "px"; // ~8px on screen
               var depth = (scale < 2.4 ? scale : 2.4) * cfg.pStrength;
-              // Hide the tight central spawn cluster: tiles stay invisible while small and
-              // near centre, fading in only as they grow out toward their framed positions.
-              var fade = (scale - 0.6) / 0.4;
-              if (fade < 0) fade = 0;
-              else if (fade > 1) fade = 1;
-              c.el.style.opacity = fade;
               var cx = L.cx + (t.dx * scale + pxv * depth) * L.s;
               var cy = L.cy + (t.dy * scale + pyv * depth) * L.s;
               var X = cx - onW / 2,
