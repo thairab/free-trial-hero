@@ -1609,6 +1609,7 @@
               var sz = Math.pow(scale, c.P); // on-screen SIZE growth (per tile)
               var onW = t.w * L.s * sz; // target on-screen width (design px)
               var s = onW / t.nw; // native -> screen (mostly downscale)
+              c.el.style.borderRadius = (8 / s).toFixed(1) + "px"; // ~8px on screen (cancels the scale)
               var depth = (scale < 2.4 ? scale : 2.4) * cfg.pStrength;
               // Hide the tight central spawn cluster: tiles stay invisible while small and
               // near centre, fading in only as they grow out toward their framed positions.
@@ -1784,6 +1785,7 @@
               var sz = Math.pow(scale, c.P); // on-screen SIZE growth (per tile)
               var onW = t.w * L.s * sz; // target on-screen width (design px)
               var s = onW / t.nw; // native -> screen (mostly downscale)
+              c.el.style.borderRadius = (8 / s).toFixed(1) + "px"; // ~8px on screen (cancels the scale)
               var depth = (scale < 2.4 ? scale : 2.4) * cfg.pStrength;
               // Hide the tight central spawn cluster: tiles stay invisible while small and
               // near centre, fading in only as they grow out toward their framed positions.
