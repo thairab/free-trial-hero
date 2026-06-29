@@ -1586,6 +1586,9 @@
                 // Golden-ratio spread over [0, introStagger): an even but
                 // non-sequential sprinkle of per-tile big-bang start offsets.
                 stag: ((i * 0.618033) % 1) * cfg.introStagger,
+                // Fixed stacking rank (tile index): unique within a generation so
+                // overlapping tiles never tie and never swap front/back.
+                z: i,
               });
             }
           }
@@ -1644,7 +1647,11 @@
               var cy = L.cy + (t.dy * scale + pyv * depth) * L.s;
               var X = cx - onW / 2,
                 Y = cy - (t.h * L.s * sz) / 2;
-              c.el.style.zIndex = (100 + Math.round(scale * 60)) | 0;
+              // Stable z-order: generation first (the higher generation always
+              // has a larger ell, so it's always the more-expanded/closer batch),
+              // then the tile's fixed rank. Independent of the live scale, so a
+              // staggered tile can't momentarily outrank a neighbour and flicker.
+              c.el.style.zIndex = 100 + c.g * 1000 + c.z;
               c.el.style.transform =
                 "translate(" +
                 X.toFixed(1) +
@@ -1906,6 +1913,9 @@
                 // Golden-ratio spread over [0, introStagger): an even but
                 // non-sequential sprinkle of per-tile big-bang start offsets.
                 stag: ((i * 0.618033) % 1) * cfg.introStagger,
+                // Fixed stacking rank (tile index): unique within a generation so
+                // overlapping tiles never tie and never swap front/back.
+                z: i,
               });
             }
           }
@@ -1964,7 +1974,11 @@
               var cy = L.cy + (t.dy * scale + pyv * depth) * L.s;
               var X = cx - onW / 2,
                 Y = cy - (t.h * L.s * sz) / 2;
-              c.el.style.zIndex = (100 + Math.round(scale * 60)) | 0;
+              // Stable z-order: generation first (the higher generation always
+              // has a larger ell, so it's always the more-expanded/closer batch),
+              // then the tile's fixed rank. Independent of the live scale, so a
+              // staggered tile can't momentarily outrank a neighbour and flicker.
+              c.el.style.zIndex = 100 + c.g * 1000 + c.z;
               c.el.style.transform =
                 "translate(" +
                 X.toFixed(1) +
