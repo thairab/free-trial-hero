@@ -1686,23 +1686,24 @@
           // dx,dy,w,h: design-px layout (centre-relative). nw,nh: the image's NATIVE pixel size,
           // used so each tile is rasterised at full resolution and only ever scaled DOWN (crisp).
           var TILES = [
-            // Mobile composition — rebalanced scatter (15 unique tiles). Visible upper band
-            // (dy < ~+40) spread evenly to fill gaps; lower tiles expand outward from behind card.
-            { f: "Image 9.png",         dx: -118, dy: -300, w: 165, h: 236, nw: 420, nh: 600 }, // overalls + art (top-left, big)
-            { f: "IMG-2.png",           dx:   46, dy: -296, w: 118, h:  92, nw: 772, nh: 600 }, // phone/desk (top-center, beside logo)
-            { f: "NorAm_FTC_02105.png", dx:  150, dy: -284, w: 150, h: 113, nw: 798, nh: 600 }, // hand + phone (top-right)
-            { f: "IMG-1.png",           dx: -150, dy: -138, w:  80, h: 106, nw: 453, nh: 600 }, // leopard bookend (left, upper-mid)
-            { f: "Image1-3.png",        dx:  -20, dy: -152, w: 100, h:  71, nw: 844, nh: 600 }, // two people on bench (center, fills gap)
-            { f: "Image1.png",          dx:  128, dy: -132, w: 120, h:  75, nw: 966, nh: 600 }, // storefront (right, upper-mid)
-            { f: "Image 8.png",         dx: -160, dy:   18, w:  86, h: 119, nw: 433, nh: 600 }, // tall (left edge, mid)
-            { f: "Image1-2.png",        dx:  -52, dy:    8, w: 120, h:  85, nw: 833, nh: 592 }, // woman at counter (center-left, mid)
-            { f: "Image 6.png",         dx:   70, dy:   26, w: 128, h:  77, nw: 996, nh: 600 }, // storefront (center-right, mid)
-            { f: "NorAm_EF_2254.png",   dx:  168, dy:   34, w: 108, h:  73, nw: 888, nh: 600 }, // right edge (mid)
-            { f: "MIB_FEYI_0289.png",   dx: -120, dy:  282, w: 150, h: 209, nw: 431, nh: 600 }, // sneakers in box (bottom-left)
-            { f: "IMG.png",             dx:   40, dy:  276, w: 105, h: 137, nw: 461, nh: 600 }, // woman green top (bottom-center)
-            { f: "Image 10.png",        dx:  150, dy:  208, w:  80, h: 110, nw: 438, nh: 600 }, // bottom-right
-            { f: "Image1-1.png",        dx:  140, dy:  330, w: 140, h: 100, nw: 843, nh: 600 }, // bicycle storefront (bottom-right far)
-            { f: "Images.png",          dx:  -30, dy:  344, w:  70, h:  97, nw: 434, nh: 600 }  // bottom-center-left
+            // Mobile composition — airy upper scatter (15 unique tiles). Three even tiers fill the
+            // top ~half; the band right above the card (dy -10..+60 near centre) is kept clear so
+            // photos don't cram behind the card. Side-margin + lower tiles flank/sit behind it.
+            { f: "Image 9.png",         dx: -120, dy: -300, w: 165, h: 236, nw: 420, nh: 600 }, // overalls + art (top-left, big)
+            { f: "IMG-2.png",           dx:   60, dy: -288, w: 112, h:  87, nw: 772, nh: 600 }, // phone/desk (top-center, beside logo)
+            { f: "NorAm_FTC_02105.png", dx:  156, dy: -270, w: 148, h: 111, nw: 798, nh: 600 }, // hand + phone (top-right)
+            { f: "IMG-1.png",           dx: -150, dy: -125, w:  82, h: 109, nw: 453, nh: 600 }, // leopard bookend (left, upper-mid)
+            { f: "Image1-3.png",        dx:  -20, dy: -150, w: 100, h:  71, nw: 844, nh: 600 }, // two people on bench (center, upper-mid)
+            { f: "Image1.png",          dx:  152, dy: -118, w: 120, h:  75, nw: 966, nh: 600 }, // picnic (right, upper-mid)
+            { f: "Image1-2.png",        dx: -118, dy:  -55, w: 116, h:  82, nw: 833, nh: 592 }, // woman at counter (left, mid — fills void)
+            { f: "Image 6.png",         dx:   58, dy:  -60, w: 124, h:  74, nw: 996, nh: 600 }, // storefront (center, mid — fills void)
+            { f: "NorAm_EF_2254.png",   dx:  158, dy:  -45, w: 104, h:  70, nw: 888, nh: 600 }, // right edge (mid)
+            { f: "Image 8.png",         dx: -166, dy:   95, w:  84, h: 116, nw: 433, nh: 600 }, // tall (left margin, flanks card)
+            { f: "Image 10.png",        dx:  166, dy:   95, w:  80, h: 110, nw: 438, nh: 600 }, // right margin, flanks card
+            { f: "MIB_FEYI_0289.png",   dx: -118, dy:  300, w: 150, h: 209, nw: 431, nh: 600 }, // sneakers in box (bottom-left)
+            { f: "IMG.png",             dx:   42, dy:  285, w: 105, h: 137, nw: 461, nh: 600 }, // woman green top (bottom-center, behind card)
+            { f: "Image1-1.png",        dx:  140, dy:  332, w: 140, h: 100, nw: 843, nh: 600 }, // bicycle storefront (bottom-right far)
+            { f: "Images.png",          dx:  -32, dy:  346, w:  70, h:  97, nw: 434, nh: 600 }  // bottom-center (behind card)
           ];
           var N = TILES.length,
             G = cfg.gens,
