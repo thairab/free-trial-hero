@@ -1553,7 +1553,9 @@
           // has moved off-frame. Loops seamlessly: all quantities are functions of L=(g-LEAD)+u.
           var L = { s: 1, cx: 0, cy: 0 };
           var pxv = 0,
-            pyv = 0;
+            pyv = 0,
+            pxT = 0,
+            pyT = 0;
           var cards = [];
           for (var g = 0; g < G; g++) {
             for (var i = 0; i < N; i++) {
@@ -1591,16 +1593,20 @@
           if (hero && !reduce) {
             hero.addEventListener("pointermove", function (e) {
               var r = hero.getBoundingClientRect();
-              pxv = -((e.clientX - r.left) / r.width - 0.5) * 2 * cfg.amp;
-              pyv = -((e.clientY - r.top) / r.height - 0.5) * 2 * cfg.amp;
+              pxT = -((e.clientX - r.left) / r.width - 0.5) * 2 * cfg.amp;
+              pyT = -((e.clientY - r.top) / r.height - 0.5) * 2 * cfg.amp;
             });
             hero.addEventListener("pointerleave", function () {
-              pxv = 0;
-              pyv = 0;
+              pxT = 0;
+              pyT = 0;
             });
           }
 
           function render(u, intro) {
+            // Ease the parallax toward the cursor target each frame so it glides with inertia
+            // instead of snapping 1:1 (lower factor = looser/smoother, higher = snappier).
+            pxv += (pxT - pxv) * 0.08;
+            pyv += (pyT - pyv) * 0.08;
             for (var k = 0; k < cards.length; k++) {
               var c = cards[k],
                 t = c.t;
@@ -1851,7 +1857,9 @@
           // has moved off-frame. Loops seamlessly: all quantities are functions of L=(g-LEAD)+u.
           var L = { s: 1, cx: 0, cy: 0 };
           var pxv = 0,
-            pyv = 0;
+            pyv = 0,
+            pxT = 0,
+            pyT = 0;
           var cards = [];
           for (var g = 0; g < G; g++) {
             for (var i = 0; i < N; i++) {
@@ -1889,16 +1897,20 @@
           if (hero && !reduce) {
             hero.addEventListener("pointermove", function (e) {
               var r = hero.getBoundingClientRect();
-              pxv = -((e.clientX - r.left) / r.width - 0.5) * 2 * cfg.amp;
-              pyv = -((e.clientY - r.top) / r.height - 0.5) * 2 * cfg.amp;
+              pxT = -((e.clientX - r.left) / r.width - 0.5) * 2 * cfg.amp;
+              pyT = -((e.clientY - r.top) / r.height - 0.5) * 2 * cfg.amp;
             });
             hero.addEventListener("pointerleave", function () {
-              pxv = 0;
-              pyv = 0;
+              pxT = 0;
+              pyT = 0;
             });
           }
 
           function render(u, intro) {
+            // Ease the parallax toward the cursor target each frame so it glides with inertia
+            // instead of snapping 1:1 (lower factor = looser/smoother, higher = snappier).
+            pxv += (pxT - pxv) * 0.08;
+            pyv += (pyT - pyv) * 0.08;
             for (var k = 0; k < cards.length; k++) {
               var c = cards[k],
                 t = c.t;
