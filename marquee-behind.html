@@ -313,7 +313,7 @@
           z-index: 0;
           display: flex;
           flex-direction: column;
-          justify-content: center;
+          justify-content: flex-start;
           gap: 12px; /* 12px between rows */
           transform: none;
           transform-origin: center center;
@@ -321,7 +321,11 @@
         }
         .mzc-row {
           position: relative;
-          flex: 1 1 0;
+          /* 2 rows, each ~27% of the hero (top-aligned) so the strip
+             renders zoomed-in (~3 tiles visible) rather than filling half
+             the screen; the lower portion sits behind the copy card. */
+          flex: none;
+          height: 27%;
           overflow: hidden;
         }
         .mzc-track {
@@ -949,30 +953,6 @@
               <img class="mzc-strip" src="assets/Marquee-behind/Bottom%20row.png" alt="" />
               <img class="mzc-strip" src="assets/Marquee-behind/Bottom%20row.png" alt="" />
               <img class="mzc-strip" src="assets/Marquee-behind/Bottom%20row.png" alt="" />
-            </div>
-          </div>
-          <div class="mzc-row mzc-row--3">
-            <div class="mzc-track">
-              <img class="mzc-strip" src="assets/Marquee-behind/Top%20row.png" alt="" />
-              <img class="mzc-strip" src="assets/Marquee-behind/Top%20row.png" alt="" />
-              <img class="mzc-strip" src="assets/Marquee-behind/Top%20row.png" alt="" />
-              <img class="mzc-strip" src="assets/Marquee-behind/Top%20row.png" alt="" />
-            </div>
-          </div>
-          <div class="mzc-row mzc-row--4">
-            <div class="mzc-track">
-              <img class="mzc-strip" src="assets/Marquee-behind/Bottom%20row.png" alt="" />
-              <img class="mzc-strip" src="assets/Marquee-behind/Bottom%20row.png" alt="" />
-              <img class="mzc-strip" src="assets/Marquee-behind/Bottom%20row.png" alt="" />
-              <img class="mzc-strip" src="assets/Marquee-behind/Bottom%20row.png" alt="" />
-            </div>
-          </div>
-          <div class="mzc-row mzc-row--5">
-            <div class="mzc-track">
-              <img class="mzc-strip" src="assets/Marquee-behind/Top%20row.png" alt="" />
-              <img class="mzc-strip" src="assets/Marquee-behind/Top%20row.png" alt="" />
-              <img class="mzc-strip" src="assets/Marquee-behind/Top%20row.png" alt="" />
-              <img class="mzc-strip" src="assets/Marquee-behind/Top%20row.png" alt="" />
             </div>
           </div>
         </div>
