@@ -431,6 +431,19 @@
         }
       }
     </style>
+    <style>
+      /* Pre-composed row strips (Top row.png / Bottom row.png) replace the
+         individual mosaic tiles. Each strip is duplicated x4 in its track so
+         the -50% loop always covers the viewport; 12px margin matches the
+         inter-tile gap and creates a uniform seam at each repeat. */
+      .mzc-strip {
+        display: block;
+        flex: none;
+        height: 100%;
+        width: auto;
+        margin-right: 12px;
+      }
+    </style>
   </head>
   <body>
     <div class="vp-d">
@@ -454,114 +467,18 @@
         <div class="hero__mosaic" aria-hidden="true">
           <div class="mzc-row mzc-row--1">
             <div class="mzc-track">
-            <div class="mzc-cell mzc-cell--single">
-              <img src="assets/Marquee-behind/Image%201.png" alt="" />
-            </div>
-            <div class="mzc-cell mzc-cell--stack" style="width:auto;aspect-ratio:0.715">
-              <img src="assets/Marquee-behind/NorAm_EF_2254.png" alt="" style="height:calc((100% - 12px) * 0.676)" />
-              <img src="assets/Marquee-behind/NorAm_FTC_02105.png" alt="" style="height:calc((100% - 12px) * 0.324)" />
-            </div>
-            <div class="mzc-cell mzc-cell--single">
-              <img src="assets/Marquee-behind/Image%202.png" alt="" />
-            </div>
-            <div class="mzc-cell mzc-cell--duo">
-              <div class="mzc-duo-top">
-                <img src="assets/Marquee-behind/IMG.png" alt="" />
-                <img src="assets/Marquee-behind/IMG-1.png" alt="" />
-              </div>
-              <div class="mzc-duo-bot">
-                <img src="assets/Marquee-behind/Image%203.png" alt="" />
-              </div>
-            </div>
-            <div class="mzc-cell mzc-cell--single">
-              <img src="assets/Marquee-behind/Image%204.png" alt="" />
-            </div>
-            <div class="mzc-cell mzc-cell--stack" style="width:auto;aspect-ratio:0.943">
-              <img src="assets/Marquee-behind/Image%205.png" alt="" style="height:calc((100% - 12px) * 0.568)" />
-              <img src="assets/Marquee-behind/IMG-2.png" alt="" style="height:calc((100% - 12px) * 0.432)" />
-            </div>
-            <div class="mzc-cell mzc-cell--single">
-              <img src="assets/Marquee-behind/Image%201.png" alt="" />
-            </div>
-            <div class="mzc-cell mzc-cell--stack" style="width:auto;aspect-ratio:0.715">
-              <img src="assets/Marquee-behind/NorAm_EF_2254.png" alt="" style="height:calc((100% - 12px) * 0.676)" />
-              <img src="assets/Marquee-behind/NorAm_FTC_02105.png" alt="" style="height:calc((100% - 12px) * 0.324)" />
-            </div>
-            <div class="mzc-cell mzc-cell--single">
-              <img src="assets/Marquee-behind/Image%202.png" alt="" />
-            </div>
-            <div class="mzc-cell mzc-cell--duo">
-              <div class="mzc-duo-top">
-                <img src="assets/Marquee-behind/IMG.png" alt="" />
-                <img src="assets/Marquee-behind/IMG-1.png" alt="" />
-              </div>
-              <div class="mzc-duo-bot">
-                <img src="assets/Marquee-behind/Image%203.png" alt="" />
-              </div>
-            </div>
-            <div class="mzc-cell mzc-cell--single">
-              <img src="assets/Marquee-behind/Image%204.png" alt="" />
-            </div>
-            <div class="mzc-cell mzc-cell--stack" style="width:auto;aspect-ratio:0.943">
-              <img src="assets/Marquee-behind/Image%205.png" alt="" style="height:calc((100% - 12px) * 0.568)" />
-              <img src="assets/Marquee-behind/IMG-2.png" alt="" style="height:calc((100% - 12px) * 0.432)" />
-            </div>
+              <img class="mzc-strip" src="assets/Marquee-behind/Top%20row.png" alt="" />
+              <img class="mzc-strip" src="assets/Marquee-behind/Top%20row.png" alt="" />
+              <img class="mzc-strip" src="assets/Marquee-behind/Top%20row.png" alt="" />
+              <img class="mzc-strip" src="assets/Marquee-behind/Top%20row.png" alt="" />
             </div>
           </div>
           <div class="mzc-row mzc-row--2">
             <div class="mzc-track">
-            <div class="mzc-cell mzc-cell--duo">
-              <div class="mzc-duo-top">
-                <img src="assets/Marquee-behind/IMG-3.png" alt="" />
-                <img src="assets/Marquee-behind/IMG-4.png" alt="" />
-              </div>
-              <div class="mzc-duo-bot">
-                <img src="assets/Marquee-behind/Image%203-1.png" alt="" />
-              </div>
-            </div>
-            <div class="mzc-cell mzc-cell--single">
-              <img src="assets/Marquee-behind/Image%201-1.png" alt="" />
-            </div>
-            <div class="mzc-cell mzc-cell--stack" style="width:auto;aspect-ratio:0.715">
-              <img src="assets/Marquee-behind/NorAm_EF_2254-1.png" alt="" style="height:calc((100% - 12px) * 0.368)" />
-              <img src="assets/Marquee-behind/NorAm_FTC_02105-1.png" alt="" style="height:calc((100% - 12px) * 0.632)" />
-            </div>
-            <div class="mzc-cell mzc-cell--stack" style="width:auto;aspect-ratio:0.943">
-              <img src="assets/Marquee-behind/Image%205-1.png" alt="" style="height:calc((100% - 12px) * 0.568)" />
-              <img src="assets/Marquee-behind/IMG-5.png" alt="" style="height:calc((100% - 12px) * 0.432)" />
-            </div>
-            <div class="mzc-cell mzc-cell--single">
-              <img src="assets/Marquee-behind/IMG-6.png" alt="" />
-            </div>
-            <div class="mzc-cell mzc-cell--single">
-              <img src="assets/Marquee-behind/Image%202-1.png" alt="" />
-            </div>
-            <div class="mzc-cell mzc-cell--duo">
-              <div class="mzc-duo-top">
-                <img src="assets/Marquee-behind/IMG-3.png" alt="" />
-                <img src="assets/Marquee-behind/IMG-4.png" alt="" />
-              </div>
-              <div class="mzc-duo-bot">
-                <img src="assets/Marquee-behind/Image%203-1.png" alt="" />
-              </div>
-            </div>
-            <div class="mzc-cell mzc-cell--single">
-              <img src="assets/Marquee-behind/Image%201-1.png" alt="" />
-            </div>
-            <div class="mzc-cell mzc-cell--stack" style="width:auto;aspect-ratio:0.715">
-              <img src="assets/Marquee-behind/NorAm_EF_2254-1.png" alt="" style="height:calc((100% - 12px) * 0.368)" />
-              <img src="assets/Marquee-behind/NorAm_FTC_02105-1.png" alt="" style="height:calc((100% - 12px) * 0.632)" />
-            </div>
-            <div class="mzc-cell mzc-cell--stack" style="width:auto;aspect-ratio:0.943">
-              <img src="assets/Marquee-behind/Image%205-1.png" alt="" style="height:calc((100% - 12px) * 0.568)" />
-              <img src="assets/Marquee-behind/IMG-5.png" alt="" style="height:calc((100% - 12px) * 0.432)" />
-            </div>
-            <div class="mzc-cell mzc-cell--single">
-              <img src="assets/Marquee-behind/IMG-6.png" alt="" />
-            </div>
-            <div class="mzc-cell mzc-cell--single">
-              <img src="assets/Marquee-behind/Image%202-1.png" alt="" />
-            </div>
+              <img class="mzc-strip" src="assets/Marquee-behind/Bottom%20row.png" alt="" />
+              <img class="mzc-strip" src="assets/Marquee-behind/Bottom%20row.png" alt="" />
+              <img class="mzc-strip" src="assets/Marquee-behind/Bottom%20row.png" alt="" />
+              <img class="mzc-strip" src="assets/Marquee-behind/Bottom%20row.png" alt="" />
             </div>
           </div>
         </div>
@@ -1014,104 +931,18 @@
         <div class="hero__mosaic" aria-hidden="true">
           <div class="mzc-row mzc-row--1">
             <div class="mzc-track">
-            <div class="mzc-cell mzc-cell--duo">
-              <div class="mzc-duo-top">
-                <img src="assets/Marquee-behind/IMG.png" alt="" />
-                <img src="assets/Marquee-behind/IMG-1.png" alt="" />
-              </div>
-              <div class="mzc-duo-bot">
-                <img src="assets/Marquee-behind/Image%203.png" alt="" />
-              </div>
-            </div>
-            <div class="mzc-cell mzc-cell--single">
-              <img src="assets/Marquee-behind/Image%201.png" alt="" />
-            </div>
-            <div class="mzc-cell mzc-cell--single">
-              <img src="assets/Marquee-behind/NorAm_EF_2254.png" alt="" />
-            </div>
-            <div class="mzc-cell mzc-cell--duo">
-              <div class="mzc-duo-top">
-                <img src="assets/Marquee-behind/IMG.png" alt="" />
-                <img src="assets/Marquee-behind/IMG-1.png" alt="" />
-              </div>
-              <div class="mzc-duo-bot">
-                <img src="assets/Marquee-behind/Image%203.png" alt="" />
-              </div>
-            </div>
-            <div class="mzc-cell mzc-cell--single">
-              <img src="assets/Marquee-behind/Image%201.png" alt="" />
-            </div>
-            <div class="mzc-cell mzc-cell--single">
-              <img src="assets/Marquee-behind/NorAm_EF_2254.png" alt="" />
-            </div>
+              <img class="mzc-strip" src="assets/Marquee-behind/Top%20row.png" alt="" />
+              <img class="mzc-strip" src="assets/Marquee-behind/Top%20row.png" alt="" />
+              <img class="mzc-strip" src="assets/Marquee-behind/Top%20row.png" alt="" />
+              <img class="mzc-strip" src="assets/Marquee-behind/Top%20row.png" alt="" />
             </div>
           </div>
           <div class="mzc-row mzc-row--2">
             <div class="mzc-track">
-            <div class="mzc-cell mzc-cell--single">
-              <img src="assets/Marquee-behind/Image%201-1.png" alt="" />
-            </div>
-            <div class="mzc-cell mzc-cell--single">
-              <img src="assets/Marquee-behind/IMG-6.png" alt="" />
-            </div>
-            <div class="mzc-cell mzc-cell--single">
-              <img src="assets/Marquee-behind/Image%202-1.png" alt="" />
-            </div>
-            <div class="mzc-cell mzc-cell--single">
-              <img src="assets/Marquee-behind/Image%202.png" alt="" />
-            </div>
-            <div class="mzc-cell mzc-cell--single">
-              <img src="assets/Marquee-behind/Image%201-1.png" alt="" />
-            </div>
-            <div class="mzc-cell mzc-cell--single">
-              <img src="assets/Marquee-behind/IMG-6.png" alt="" />
-            </div>
-            <div class="mzc-cell mzc-cell--single">
-              <img src="assets/Marquee-behind/Image%202-1.png" alt="" />
-            </div>
-            <div class="mzc-cell mzc-cell--single">
-              <img src="assets/Marquee-behind/Image%202.png" alt="" />
-            </div>
-            </div>
-          </div>
-          <div class="mzc-row mzc-row--3">
-            <div class="mzc-track">
-            <div class="mzc-cell mzc-cell--single">
-              <img src="assets/Marquee-behind/IMG-3.png" alt="" />
-            </div>
-            <div class="mzc-cell mzc-cell--duo">
-              <div class="mzc-duo-top">
-                <img src="assets/Marquee-behind/IMG-5.png" alt="" />
-                <img src="assets/Marquee-behind/IMG-2.png" alt="" />
-              </div>
-              <div class="mzc-duo-bot">
-                <img src="assets/Marquee-behind/Image%203-1.png" alt="" />
-              </div>
-            </div>
-            <div class="mzc-cell mzc-cell--single">
-              <img src="assets/Marquee-behind/NorAm_FTC_02105-1.png" alt="" />
-            </div>
-            <div class="mzc-cell mzc-cell--single">
-              <img src="assets/Marquee-behind/Image%204.png" alt="" />
-            </div>
-            <div class="mzc-cell mzc-cell--single">
-              <img src="assets/Marquee-behind/IMG-3.png" alt="" />
-            </div>
-            <div class="mzc-cell mzc-cell--duo">
-              <div class="mzc-duo-top">
-                <img src="assets/Marquee-behind/IMG-5.png" alt="" />
-                <img src="assets/Marquee-behind/IMG-2.png" alt="" />
-              </div>
-              <div class="mzc-duo-bot">
-                <img src="assets/Marquee-behind/Image%203-1.png" alt="" />
-              </div>
-            </div>
-            <div class="mzc-cell mzc-cell--single">
-              <img src="assets/Marquee-behind/NorAm_FTC_02105-1.png" alt="" />
-            </div>
-            <div class="mzc-cell mzc-cell--single">
-              <img src="assets/Marquee-behind/Image%204.png" alt="" />
-            </div>
+              <img class="mzc-strip" src="assets/Marquee-behind/Bottom%20row.png" alt="" />
+              <img class="mzc-strip" src="assets/Marquee-behind/Bottom%20row.png" alt="" />
+              <img class="mzc-strip" src="assets/Marquee-behind/Bottom%20row.png" alt="" />
+              <img class="mzc-strip" src="assets/Marquee-behind/Bottom%20row.png" alt="" />
             </div>
           </div>
         </div>
