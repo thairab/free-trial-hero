@@ -1686,24 +1686,145 @@
           // dx,dy,w,h: design-px layout (centre-relative). nw,nh: the image's NATIVE pixel size,
           // used so each tile is rasterised at full resolution and only ever scaled DOWN (crisp).
           var TILES = [
-            // Mobile composition — airy upper scatter (15 unique tiles). Three even tiers fill the
-            // top ~half; the band right above the card (dy -10..+60 near centre) is kept clear so
-            // photos don't cram behind the card. Side-margin + lower tiles flank/sit behind it.
-            { f: "Image 9.png",         dx: -120, dy: -300, w: 165, h: 236, nw: 420, nh: 600 }, // overalls + art (top-left, big)
-            { f: "IMG-2.png",           dx:   60, dy: -288, w: 112, h:  87, nw: 772, nh: 600 }, // phone/desk (top-center, beside logo)
-            { f: "NorAm_FTC_02105.png", dx:  156, dy: -270, w: 148, h: 111, nw: 798, nh: 600 }, // hand + phone (top-right)
-            { f: "IMG-1.png",           dx: -150, dy: -125, w:  82, h: 109, nw: 453, nh: 600 }, // leopard bookend (left, upper-mid)
-            { f: "Image1-3.png",        dx:  -20, dy: -150, w: 100, h:  71, nw: 844, nh: 600 }, // two people on bench (center, upper-mid)
-            { f: "Image1.png",          dx:  152, dy: -118, w: 120, h:  75, nw: 966, nh: 600 }, // picnic (right, upper-mid)
-            { f: "Image1-2.png",        dx: -118, dy:  -55, w: 116, h:  82, nw: 833, nh: 592 }, // woman at counter (left, mid — fills void)
-            { f: "Image 6.png",         dx:   58, dy:  -60, w: 124, h:  74, nw: 996, nh: 600 }, // storefront (center, mid — fills void)
-            { f: "NorAm_EF_2254.png",   dx:  158, dy:  -45, w: 104, h:  70, nw: 888, nh: 600 }, // right edge (mid)
-            { f: "Image 8.png",         dx: -166, dy:   95, w:  84, h: 116, nw: 433, nh: 600 }, // tall (left margin, flanks card)
-            { f: "Image 10.png",        dx:  166, dy:   95, w:  80, h: 110, nw: 438, nh: 600 }, // right margin, flanks card
-            { f: "MIB_FEYI_0289.png",   dx: -118, dy:  300, w: 150, h: 209, nw: 431, nh: 600 }, // sneakers in box (bottom-left)
-            { f: "IMG.png",             dx:   42, dy:  285, w: 105, h: 137, nw: 461, nh: 600 }, // woman green top (bottom-center, behind card)
-            { f: "Image1-1.png",        dx:  140, dy:  332, w: 140, h: 100, nw: 843, nh: 600 }, // bicycle storefront (bottom-right far)
-            { f: "Images.png",          dx:  -32, dy:  346, w:  70, h:  97, nw: 434, nh: 600 }  // bottom-center (behind card)
+            // Mobile composition — 7 featured photos visible at rest, generously spaced; the other
+            // 8 sit behind/below the card (hidden at rest, still expand into the looping animation).
+            // VISIBLE (7): top row + an even mid tier + two above the card, lots of breathing room.
+            {
+              f: "Image 9.png",
+              dx: -120,
+              dy: -298,
+              w: 168,
+              h: 240,
+              nw: 420,
+              nh: 600,
+            }, // overalls + art (top-left, big)
+            {
+              f: "NorAm_FTC_02105.png",
+              dx: 150,
+              dy: -280,
+              w: 150,
+              h: 113,
+              nw: 798,
+              nh: 600,
+            }, // hand + phone (top-right)
+            {
+              f: "IMG-1.png",
+              dx: -156,
+              dy: -118,
+              w: 84,
+              h: 112,
+              nw: 453,
+              nh: 600,
+            }, // leopard bookend (left-mid)
+            {
+              f: "Image1-3.png",
+              dx: -16,
+              dy: -140,
+              w: 108,
+              h: 77,
+              nw: 844,
+              nh: 600,
+            }, // two people on bench (center-mid)
+            {
+              f: "Image1.png",
+              dx: 152,
+              dy: -95,
+              w: 124,
+              h: 78,
+              nw: 966,
+              nh: 600,
+            }, // picnic (right-mid)
+            {
+              f: "Image1-2.png",
+              dx: -112,
+              dy: 10,
+              w: 120,
+              h: 85,
+              nw: 833,
+              nh: 592,
+            }, // woman at counter (lower-left, above card)
+            {
+              f: "Image 6.png",
+              dx: 66,
+              dy: 18,
+              w: 130,
+              h: 78,
+              nw: 996,
+              nh: 600,
+            }, // storefront (lower-center, above card)
+            // HIDDEN AT REST (8): behind/below the card, distributed so they expand from all sides.
+            {
+              f: "IMG-2.png",
+              dx: 30,
+              dy: 175,
+              w: 112,
+              h: 87,
+              nw: 772,
+              nh: 600,
+            }, // phone/desk
+            {
+              f: "NorAm_EF_2254.png",
+              dx: -110,
+              dy: 185,
+              w: 104,
+              h: 70,
+              nw: 888,
+              nh: 600,
+            }, // wide scene
+            {
+              f: "IMG.png",
+              dx: 118,
+              dy: 205,
+              w: 105,
+              h: 137,
+              nw: 461,
+              nh: 600,
+            }, // woman green top
+            {
+              f: "Image 8.png",
+              dx: 100,
+              dy: 305,
+              w: 84,
+              h: 116,
+              nw: 433,
+              nh: 600,
+            }, // tall
+            {
+              f: "Image 10.png",
+              dx: -108,
+              dy: 305,
+              w: 80,
+              h: 110,
+              nw: 438,
+              nh: 600,
+            }, // tall
+            {
+              f: "MIB_FEYI_0289.png",
+              dx: 8,
+              dy: 330,
+              w: 150,
+              h: 209,
+              nw: 431,
+              nh: 600,
+            }, // sneakers in box
+            {
+              f: "Image1-1.png",
+              dx: -118,
+              dy: 344,
+              w: 140,
+              h: 100,
+              nw: 843,
+              nh: 600,
+            }, // bicycle storefront
+            {
+              f: "Images.png",
+              dx: 58,
+              dy: 360,
+              w: 70,
+              h: 97,
+              nw: 434,
+              nh: 600,
+            }, // bottom-center
           ];
           var N = TILES.length,
             G = cfg.gens,
