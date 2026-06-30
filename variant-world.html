@@ -55,24 +55,36 @@
           justify-content: center;
           height: calc(72 * var(--u));
         }
-        /* Soft white halo behind the logo so the mark stays legible where the
-         photos bleed up behind it. Sits below the SVG (z-index:-1) but inside
-         the logo's stacking context, so it's above the photo field. */
+        /* Frosted-glass header band behind the logo (Figma 653:57418): a
+         full-width translucent white strip with a 2px backdrop blur, so the
+         animated photo field reads softly through it and the mark stays
+         legible. Replaces the earlier radial halo. Bottom edge feathers out so
+         the band dissolves into the photo field rather than hard-cutting.
+         Sits below the SVG (z-index:-1) but inside the logo's stacking
+         context, so it's above the photo field. */
         .v7-logo::before {
           content: "";
           position: absolute;
-          left: 50%;
-          top: calc(36 * var(--u));
-          transform: translate(-50%, -50%);
-          width: calc(380 * var(--u));
-          height: calc(132 * var(--u));
+          left: 0;
+          right: 0;
+          top: 0;
+          height: calc(109 * var(--u));
           z-index: -1;
           pointer-events: none;
-          background: radial-gradient(
-            ellipse at center,
-            rgba(255, 255, 255, 0.95) 0%,
-            rgba(255, 255, 255, 0.7) 32%,
-            rgba(255, 255, 255, 0) 72%
+          background: rgba(255, 255, 255, 0.7);
+          -webkit-backdrop-filter: blur(2px);
+          backdrop-filter: blur(2px);
+          -webkit-mask-image: linear-gradient(
+            to bottom,
+            #000 0%,
+            #000 62%,
+            transparent 100%
+          );
+          mask-image: linear-gradient(
+            to bottom,
+            #000 0%,
+            #000 62%,
+            transparent 100%
           );
         }
         .v7-logo .shopify-logo {
@@ -290,23 +302,32 @@
           justify-content: center;
           height: calc(72 * var(--u));
         }
-        /* Soft white halo behind the logo so the mark stays legible over the
-         photo that bleeds up to the top edge behind it. */
+        /* Frosted-glass header band behind the logo (Figma 653:57418), mobile:
+         same full-width translucent white strip + 2px backdrop blur as desktop,
+         feathered at the bottom so it melts into the photo field. */
         .m7-logo::before {
           content: "";
           position: absolute;
-          left: 50%;
-          top: calc(36 * var(--u));
-          transform: translate(-50%, -50%);
-          width: calc(300 * var(--u));
-          height: calc(120 * var(--u));
+          left: 0;
+          right: 0;
+          top: 0;
+          height: calc(108 * var(--u));
           z-index: -1;
           pointer-events: none;
-          background: radial-gradient(
-            ellipse at center,
-            rgba(255, 255, 255, 0.96) 0%,
-            rgba(255, 255, 255, 0.72) 32%,
-            rgba(255, 255, 255, 0) 72%
+          background: rgba(255, 255, 255, 0.7);
+          -webkit-backdrop-filter: blur(2px);
+          backdrop-filter: blur(2px);
+          -webkit-mask-image: linear-gradient(
+            to bottom,
+            #000 0%,
+            #000 62%,
+            transparent 100%
+          );
+          mask-image: linear-gradient(
+            to bottom,
+            #000 0%,
+            #000 62%,
+            transparent 100%
           );
         }
         .m7-logo .shopify-logo {
